@@ -1,11 +1,8 @@
 <template>
   <section class='list'>
     <div id='box'>
-      <h1 class='subtitle'>I'm a programmer for mission-driven organizations</h1>
       <ul>
-        <li>Element 1</li>
-        <li>Element 2</li>
-        <li>Element 3</li>
+        <li v-for='project, i in projects' class='project'><div :class='project.className'><div class='color'></div></div></li>
       </ul>
     </div>
   </section>
@@ -16,7 +13,20 @@ export default {
   name: 'List',
   data () {
     return {
-      scrolled: false
+      scrolled: false,
+      projects: [
+      {
+        className: 'image-first',
+        src: '../assets/cosmos-map'
+      },
+      {
+        className: 'image-second',
+        src: '../assets/ej-watchlist'
+      },
+      {
+        className: 'image-third',
+        src: '../assets/bb-home'
+      }]
     };
   },
   methods: {
@@ -25,7 +35,11 @@ export default {
       var element = document.getElementById("box");
       var x = 1000
         if(window.scrollY > 0) {
-          x = 732 - (5*window.scrollY)
+          x = 732 - (3*window.scrollY)
+          element.style.opacity = 1
+        }
+        else {
+          element.style.opacity = .5
         }
         element.style.transform = `translate3d(${x}px, -50%, 0)`;
     }
@@ -51,7 +65,8 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: lightblue;
+  opacity: .5;
+  transition: opacity 1s;
 }
 ul {
   display: flex;
@@ -60,9 +75,41 @@ ul {
   align-items: center;
   justify-content: space-around;
 }
-li {
-  width: 200px;
-  height: 200px;
-  background-color: blue;
+li, .color {
+  width: 354px;
+  height: 228px;
+  transition: width .5s;
+  transition: height .5s;
 }
+li:hover {
+  width: 374px;
+  height: 248px;
+  cursor: pointer; 
+}
+.project {
+}
+.project > * {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  background-position: center, top;
+}
+.image-first {
+  background-image: url('../assets/ej-watchlist.png');
+}
+.image-second {
+  background-image: url('../assets/cosmos-map.png');
+}
+.image-third {
+  background-image: url('../assets/bb-home.png');
+}
+.color {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color .25s;
+}
+.color:hover {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 </style>

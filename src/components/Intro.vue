@@ -7,6 +7,10 @@
     <div class='title-container'>
       <span class='title-line'><h1 class='title'>Hi</h1><div class='dot'></div></span>
     </div>
+    <div class='scroll-container'>
+      <p class='scroll'>Scroll</p>
+      <div class='arrow'></div>
+    </div>
   </section>
 </template>
 
@@ -68,5 +72,33 @@ export default {
 }
 .right {
   background-color: #fff;
+}
+.scroll-container {
+  position: fixed;
+  top: 78%;
+  left: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.scroll, .arrow {
+  color: #fff;
+}
+.scroll {
+  transform: rotate(-90deg);
+  font-size: 26px;
+}
+.arrow {
+  background-image: url('../assets/down-arrow-50-white.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0% {margin-top: 0;}
+  50% {margin-top: 20px;}
+  100% {margin-top: 0;}
 }
 </style>
