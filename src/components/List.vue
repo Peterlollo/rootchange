@@ -1,10 +1,13 @@
 <template>
   <section class='list'>
-    <ul id='box'>
-      <li>Element 1</li>
-      <li>Element 2</li>
-      <li>Element 3</li>
-    </ul>
+    <div id='box'>
+      <h1 class='subtitle'>I'm a programmer for mission-driven organizations</h1>
+      <ul>
+        <li>Element 1</li>
+        <li>Element 2</li>
+        <li>Element 3</li>
+      </ul>
+    </div>
   </section>
 </template>
 
@@ -38,7 +41,7 @@ export default {
 </script>
 
 <style scoped>
-ul {
+#box {
   position: fixed;
   top: 50%;
   height: 65vh;
@@ -46,10 +49,16 @@ ul {
   display: block;
   width: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightblue;
+}
+ul {
+  display: flex;
   justify-content: space-around;
   list-style: none;
-  background-color: lightblue;
   align-items: center;
+  justify-content: space-around;
 }
 li {
   width: 200px;

@@ -6,8 +6,6 @@
     </div>
     <div class='title-container'>
       <span class='title-line'><h1 class='title'>Hi</h1><div class='dot'></div></span>
-
-      <!-- <h3 class='subtitle'>I'm Peter</h3> -->
     </div>
   </section>
 </template>
@@ -15,6 +13,16 @@
 <script>
 export default {
   name: 'Intro',
+  data: () => {
+    return {
+      secPassed: false,
+      element: ''
+    }
+  },
+  created () {
+    setTimeout(() => {this.secPassed = true}, 2000)
+
+  }
 }
 </script>
 
@@ -36,14 +44,12 @@ export default {
   margin: 0;
   padding: 0;
 }
-.title-container > h3 {
-  font-size: 5rem;
-}
 .title-line {
   display: flex;
   flex-direction: row;
   align-items: baseline;
 }
+
 .dot {
   height: 38px;
   width: 38px;
@@ -55,7 +61,7 @@ export default {
   display: flex;
   background-color: #ff5851;
   flex-basis: 50%;
-  height: 500px;
+  height: 2000px;
 }
 .left {
   background-color: #ff5851;
