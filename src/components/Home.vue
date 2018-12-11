@@ -3,7 +3,8 @@
     <Intro />
     <div>
       <h1>I'm a programmer</h1>
-      <h4>For mission-driven organizations</h4>
+      <hr>
+      <h1 class='subtitle'>For mission-driven organizations</h1>
     </div>
     <Projects />
   </div>
@@ -19,4 +20,11 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-weight: 900;
+  color: #fff;
+}
+.subtitle {
+  color: #ff5851;
+}
 </style>

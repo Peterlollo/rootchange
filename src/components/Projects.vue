@@ -1,5 +1,6 @@
 <template>
   <section class='projects'>
+    <!-- <h1 class='title'>PROJECTS</h1> -->
     <div id='box'>
       <ul>
         <li v-for='project, i in projects' class='project'>
@@ -42,8 +43,8 @@ export default {
   methods: {
     route (name) { changeRoute(`project/${name}`) },
     handleScroll () {
-      if(window.innerWidth >= 767) {
-        this.scrolled = window.scrollY > 0;
+      this.scrolled = window.scrollY > 0;
+      if (window.innerWidth >= 767) {
         var element = document.getElementById("box");
         var x = 1000
         if(window.scrollY > 0) {
@@ -68,8 +69,21 @@ export default {
 </script>
 
 <style scoped>
+.projects {
+  /*background-color: #fff;*/
+  background-color: #021D44;
+}
+.title {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ff5851;
+  padding-top: 40px;
+  padding-left: 20px;
+  text-align: left;
+}
 #box {
-  opacity: .5;
+  /*opacity: .5;*/
+  transform: none;
   transition: opacity 1s;
 }
 ul {
@@ -79,19 +93,23 @@ ul {
   list-style: none;
   align-items: center;
   justify-content: space-around;
+  padding-left: 0;
 }
 li, .color {
-  width: 354px;
-  height: 228px;
-  transition: width .5s;
-  transition: height .5s;
+  /*width: 354px;*/
+  /*height: 228px;*/
+  width: 90%;
+  height: 350px;
+  transition: .5s ease;
 }
 li:hover {
-  width: 374px;
-  height: 248px;
+  height: 360px;
+  width: 95%;
   cursor: pointer; 
 }
 .project {
+  width: 90%;
+  padding: 20px 10px;
 }
 .project > * {
   background-size: contain;
@@ -109,13 +127,13 @@ li:hover {
 .image-third {
   background-image: url('../assets/bb-home.png');
 }
-.color {
+/*.color {
   background-color: rgba(0, 0, 0, 0.3);
   transition: background-color .25s;
 }
 .color:hover {
   background-color: rgba(0, 0, 0, 0);
-}
+}*/
 @media(min-width: 767px) {
   #box {
     position: fixed;

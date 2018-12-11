@@ -1,18 +1,23 @@
 <template>
   <div id="app">
+    <Header />
     <div class='container'>
       <div class='main-row'>
         <router-view name='sidebar' id='router-sidebar'/>
         <router-view name='main' id='router-main'/>
       </div>
     </div>
+    </Footer>
   </div>
 </template>
 
 <script>
+import Header from './components/Header'
+import Footer from './components/Footer'
 import { changeRoute } from './utils'
 export default {
-  name: 'app'
+  name: 'app',
+  components: { Header, Footer }
 }
 </script>
 

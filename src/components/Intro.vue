@@ -1,13 +1,10 @@
 <template>
   <section class='home'>
-    <div class='backgrounds'>
-      <div id='left' class='left'></div>
-      <div id='right' class='right'></div>
-    </div>
+    <div id='left' class='left'></div>
     <div id='title-container' class='title-container'>
       <span class='title-line'><h1 class='title'>Hi</h1><div class='dot'></div></span>
     </div>
-    <div class='scroll-container'>
+    <div class='scroll-container' :class="{hide: scrolled}">
       <p class='scroll'>Scroll</p>
       <div class='arrow'></div>
     </div>
@@ -24,15 +21,15 @@ export default {
   },
   methods: {
     handleScroll () {
+      this.scrolled = window.scrollY > 0
       if(window.innerWidth <= 767) {
-        this.scrolled = window.scrollY > 0
-        var element = document.getElementById('right')
+        var element = document.getElementById('left')
         var title = document.getElementById('title-container')
-        var titlex = -50
+        var titlex = -100
         var x = 50
         if(window.scrollY > 0) {
-          x = 50 - window.scrollY
-          titlex = -50 + window.scrollY
+          x = 50 + window.scrollY
+          titlex = -100 + window.scrollY
         }
         element.style.width = `${x}%`
         title.style.transform = `translate(${titlex}%, -50%)`
@@ -49,15 +46,23 @@ export default {
 </script>
 
 <style scoped>
-.backgrounds {
-  display: flex;
-  flex-direction: row;
+.home {
+  height: 700px;
+}
+#left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  z-index: -1;
+  background-color: #021D44;
 }
 .title-container {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-100%, -50%);
 }
 .title-container > * {
   font-size: 10rem;
@@ -72,6 +77,7 @@ export default {
 }
 .title-line h1 {
   font-size: 10rem;
+  color: #fff;
 }
 .dot {
   height: 2.5rem;
@@ -80,25 +86,11 @@ export default {
   border-radius: 50%;
   display: inline-block;
 }
-.left, .right {
-  display: flex;
-  background-color: #ff5851;
-  height: 2000px;
-}
-.left {
-  background-color: #ff5851;
-  flex-grow: 1;
-  flex-basis: 50%;
-}
-.right {
-  background-color: #fff;
-  width: 50%;
-}
 .scroll-container {
   position: fixed;
   top: 78%;
   left: 40%;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -122,9 +114,9 @@ export default {
   50% {margin-top: 20px;}
   100% {margin-top: 0;}
 }
+.hide {
+  display: none;
+}
 @media(min-width: 767px) {
-  .scroll-container {
-    display: flex;
-  }
 }
 </style>
