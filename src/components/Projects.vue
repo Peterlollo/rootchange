@@ -1,35 +1,46 @@
 <template>
-  <section class='list'>
+  <section class='projects'>
     <div id='box'>
       <ul>
-        <li v-for='project, i in projects' class='project'><div :class='project.className'><div class='color'></div></div></li>
+        <li v-for='project, i in projects' class='project'>
+            <a v-on:click='route(project.name)'>
+            <div :class='project.className'>
+              <div class='color'></div>
+            </div>
+          </a>
+        </li>
       </ul>
     </div>
   </section>
 </template>
 
 <script>
+import { changeRoute } from '../utils'
 export default {
-  name: 'List',
+  name: 'Projects',
   data () {
     return {
       scrolled: false,
       projects: [
       {
+        name: 'cosmos',
         className: 'image-first',
         src: '../assets/cosmos-map'
       },
       {
+        name: 'earthjustice',
         className: 'image-second',
         src: '../assets/ej-watchlist'
       },
       {
+        name: 'barbershop-books',
         className: 'image-third',
         src: '../assets/bb-home'
       }]
     };
   },
   methods: {
+    route (name) { changeRoute(`project/${name}`) },
     handleScroll () {
       this.scrolled = window.scrollY > 0;
       var element = document.getElementById("box");

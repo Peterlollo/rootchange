@@ -1,24 +1,18 @@
 <template>
   <div id="app">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Intro />
-    <List />
+    <div class='container'>
+      <div class='main-row'>
+        <router-view name='sidebar' id='router-sidebar'/>
+        <router-view name='main' id='router-main'/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import Intro from './components/Intro.vue'
-import List from './components/List.vue'
-
+import { changeRoute } from './utils'
 export default {
-  name: 'app',
-  components: {
-    HelloWorld,
-    Intro,
-    List
-  }
+  name: 'app'
 }
 </script>
 
@@ -31,5 +25,18 @@ body { margin-top: 0; }
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
+}
+#app > .container {
+  flex: 1 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: calc(100% - 1.5rem * 2);
+}
+.main-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
 </style>

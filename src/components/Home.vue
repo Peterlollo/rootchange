@@ -1,22 +1,27 @@
 <template>
-  <section class='intro'>
-    <div class='backgrounds'>
-      <div class='left'></div>
-      <div class='right'></div>
-    </div>
-    <div class='title-container'>
-      <span class='title-line'><h1 class='title'>Hi</h1><div class='dot'></div></span>
-    </div>
-    <div class='scroll-container'>
-      <p class='scroll'>Scroll</p>
-      <div class='arrow'></div>
-    </div>
-  </section>
+  <div>
+    <section class='home'>
+      <div class='backgrounds'>
+        <div class='left'></div>
+        <div class='right'></div>
+      </div>
+      <div class='title-container'>
+        <span class='title-line'><h1 class='title'>Hi</h1><div class='dot'></div></span>
+      </div>
+      <div class='scroll-container'>
+        <p class='scroll'>Scroll</p>
+        <div class='arrow'></div>
+      </div>
+    </section>
+    <Projects />
+  </div>
 </template>
 
 <script>
+import Projects from './Projects'
 export default {
-  name: 'Intro',
+  name: 'Home',
+  components: {Projects},
   data: () => {
     return {
       secPassed: false,
