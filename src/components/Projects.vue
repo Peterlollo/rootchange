@@ -42,9 +42,10 @@ export default {
   methods: {
     route (name) { changeRoute(`project/${name}`) },
     handleScroll () {
-      this.scrolled = window.scrollY > 0;
-      var element = document.getElementById("box");
-      var x = 1000
+      if(window.innerWidth >= 767) {
+        this.scrolled = window.scrollY > 0;
+        var element = document.getElementById("box");
+        var x = 1000
         if(window.scrollY > 0) {
           x = 732 - (3*window.scrollY)
           element.style.opacity = 1
@@ -53,6 +54,7 @@ export default {
           element.style.opacity = .5
         }
         element.style.transform = `translate3d(${x}px, -50%, 0)`;
+      }
     }
   },
   created () {
@@ -67,20 +69,12 @@ export default {
 
 <style scoped>
 #box {
-  position: fixed;
-  top: 50%;
-  height: 65vh;
-  transform: translate(1000px, -50%);
-  display: block;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   opacity: .5;
   transition: opacity 1s;
 }
 ul {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   list-style: none;
   align-items: center;
@@ -122,5 +116,20 @@ li:hover {
 .color:hover {
   background-color: rgba(0, 0, 0, 0);
 }
-
+@media(min-width: 767px) {
+  #box {
+    position: fixed;
+    top: 50%;
+    height: 65vh;
+    transform: translate(1000px, -50%);
+    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  ul {
+    flex-direction: row;
+  }
+}
 </style>

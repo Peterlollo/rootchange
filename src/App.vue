@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style>
-body { margin-top: 0; }
+body { margin: 0; }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,14 +26,14 @@ body { margin-top: 0; }
   color: #2c3e50;
   margin-top: 0;
 }
-#app > .container {
+/*#app > .container {
   flex: 1 0 auto;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   width: calc(100% - 1.5rem * 2);
-}
+}*/
 .main-row {
   display: flex;
   flex-direction: column;
