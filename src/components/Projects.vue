@@ -3,9 +3,9 @@
     <!-- <h1 class='title'>PROJECTS</h1> -->
     <div id='box'>
       <ul>
-        <li v-for='project, i in projects' class='project'>
-            <a v-on:click='route(project.name)'>
-            <div :class='project.className'>
+        <li v-for='(project, i) in projects' :key='i' class='project'>
+            <a v-on:click='showProject(project)'>
+            <div :class='project.name'>
               <div class='color'></div>
             </div>
           </a>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { changeRoute } from '../utils'
+import { mapActions } from 'vuex'
 export default {
   name: 'Projects',
   data () {
@@ -25,23 +25,19 @@ export default {
       projects: [
       {
         name: 'cosmos',
-        className: 'image-first',
         src: '../assets/cosmos-map'
       },
       {
         name: 'earthjustice',
-        className: 'image-second',
         src: '../assets/ej-watchlist'
       },
       {
         name: 'barbershop-books',
-        className: 'image-third',
         src: '../assets/bb-home'
       }]
     };
   },
   methods: {
-    route (name) { changeRoute(`project/${name}`) },
     handleScroll () {
       this.scrolled = window.scrollY > 0;
       if (window.innerWidth >= 767) {
@@ -56,7 +52,8 @@ export default {
         }
         element.style.transform = `translate3d(${x}px, -50%, 0)`;
       }
-    }
+    },
+    ...mapActions(['showProject'])
   },
   created () {
     window.addEventListener('scroll', this.handleScroll);
@@ -96,8 +93,6 @@ ul {
   padding-left: 0;
 }
 li, .color {
-  /*width: 354px;*/
-  /*height: 228px;*/
   width: 90%;
   height: 350px;
   transition: .5s ease;
@@ -118,13 +113,13 @@ li:hover {
   height: 100%;
   background-position: center, top;
 }
-.image-first {
+.earthjustice {
   background-image: url('../assets/ej-watchlist.png');
 }
-.image-second {
+.cosmos {
   background-image: url('../assets/cosmos-map.png');
 }
-.image-third {
+.barbershop-books {
   background-image: url('../assets/bb-home.png');
 }
 /*.color {

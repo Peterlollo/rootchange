@@ -7,14 +7,13 @@
         <router-view name='main' id='router-main'/>
       </div>
     </div>
-    </Footer>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from './components/Header'
 import Footer from './components/Footer'
-import { changeRoute } from './utils'
 export default {
   name: 'app',
   components: { Header, Footer }
@@ -42,6 +41,6 @@ body { margin: 0; }
 .main-row {
   display: flex;
   flex-direction: column;
-  margin-bottom: 100px;
+  height: 100vh;
 }
 </style>
