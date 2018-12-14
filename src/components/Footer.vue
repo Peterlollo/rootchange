@@ -13,7 +13,6 @@ export default {
 <style scoped>
 #Footer {
 	display: flex;
-  position: fixed;
   justify-content: center;
   bottom: 0;
   width: 100%;

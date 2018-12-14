@@ -21,7 +21,8 @@ export default {
 
 <style scoped>
 #Header {
-	background-color: #021D44;
+	/*background-color: #021D44;*/
+	background-color: none;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
