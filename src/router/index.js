@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Project from '@/components/Project'
+import ProjectIntro from '@/components/ProjectIntro'
+import ProjectSidebar from '@/components/ProjectSidebar'
 import NotFoundComponent from '@/components/NotFoundComponent'
 
 Vue.use(Router)
@@ -20,7 +22,9 @@ export default new Router({
       path: '/project/*',
       name: 'project',
       components: {
-        main: Project
+        intro: ProjectIntro,
+        main: Project,
+        sidebar: ProjectSidebar
       }
     },
     {

@@ -2,9 +2,10 @@
   <div id="app">
     <Header />
     <div class='container'>
+      <router-view name='intro' id='router-intro'/>
       <div class='main-row'>
-        <router-view name='sidebar' id='router-sidebar'/>
         <router-view name='main' id='router-main'/>
+        <router-view name='sidebar' id='router-sidebar'/>
       </div>
     </div>
     <Footer />
@@ -30,9 +31,6 @@ html, body {
 }
 html {
   height: 100%;
-}
-#router-main {
-  overflow-y: scroll;
 }
 body {
   margin: 0;
@@ -64,5 +62,25 @@ body {
 .main-row {
   display: flex;
   flex-direction: column;
+}
+#router-main {
+  overflow-y: scroll;
+}
+#router-sidebar {
+  overflow-y: scroll;
+}
+@media (min-width: 768px) {
+  #app > .container {
+    width: 750px;
+  }
+  .main-row {
+    flex-direction: row;
+  }
+  #router-sidebar {
+    flex: 1;
+  }
+  #router-main {
+    flex: 2;
+  }
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div id='Header'>
-  	<div v-on:click='route("/")' class='left'>
-  	  <p>Peter Lollo</p>
-  	 </div>
-  	<div class='right'>Nav Bar</div>
+		<div v-on:click='route("/")' class='left'>
+			<p class='name'>Peter Lollo</p>
+		</div>
+		<div class='right'>Nav Bar</div>
   </div>
 </template>
 
@@ -39,6 +39,9 @@ export default {
 }
 .left:hover {
 	cursor: pointer;
+}
+.name {
+	text-transform: uppercase;
 }
 .right {
 	display: flex;
