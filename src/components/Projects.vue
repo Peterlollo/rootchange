@@ -1,12 +1,10 @@
 <template>
   <section class='projects'>
-    <!-- <h1 class='title'>PROJECTS</h1> -->
     <div id='box'>
       <ul>
         <li v-for='(project, i) in projects' :key='i' class='project'>
             <a v-on:click='showProject(project)'>
-            <div :class='project.name'>
-              <div class='color'></div>
+            <div class='project-image' :class='project'>
             </div>
           </a>
         </li>
@@ -22,19 +20,7 @@ export default {
   data () {
     return {
       scrolled: false,
-      projects: [
-      {
-        name: 'cosmos',
-        src: '../assets/cosmos-map'
-      },
-      {
-        name: 'earthjustice',
-        src: '../assets/ej-watchlist'
-      },
-      {
-        name: 'barbershop-books',
-        src: '../assets/bb-home'
-      }]
+      projects: [ 'xinampa', 'earthjustice', 'barbershop-books']
     };
   },
   methods: {
@@ -92,7 +78,7 @@ ul {
   justify-content: space-around;
   padding-left: 0;
 }
-li, .color {
+li, .project-image {
   width: 90%;
   height: 350px;
   transition: .5s ease;
@@ -114,21 +100,14 @@ li:hover {
   background-position: center, top;
 }
 .earthjustice {
-  background-image: url('../assets/ej-watchlist.png');
+  background-image: url('../assets/earthjustice.png');
 }
-.cosmos {
-  background-image: url('../assets/cosmos-map.png');
+.xinampa {
+  background-image: url('../assets/xinampa.png');
 }
 .barbershop-books {
-  background-image: url('../assets/bb-home.png');
+  background-image: url('../assets/barbershop.png');
 }
-/*.color {
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: background-color .25s;
-}
-.color:hover {
-  background-color: rgba(0, 0, 0, 0);
-}*/
 @media(min-width: 767px) {
   #box {
     position: fixed;

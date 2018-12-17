@@ -1,12 +1,16 @@
 <template>
 	<div class='container'>
-    <p class='big-text'>Xinampa is building the first sustainable energy marketplace in Latin America. I built user and enterprise-facing React / Redux SPAs, integrated the frontend with a Python / Flask / Postgres backend, implemented a Stripe payment system, and updated roles and auth using Flask Security.</p>
+    <p class='big-text'>{{curProject.summary}}</p>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'Project'
+  name: 'ProjectSummary',
+  computed: {
+    ...mapGetters(['curProject'])
+  }
 }
 </script>
 

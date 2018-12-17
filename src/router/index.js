@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Project from '@/components/Project'
+import ProjectSummary from '@/components/ProjectSummary'
 import ProjectIntro from '@/components/ProjectIntro'
 import ProjectSidebar from '@/components/ProjectSidebar'
 import NotFoundComponent from '@/components/NotFoundComponent'
@@ -23,7 +23,7 @@ export default new Router({
       name: 'project',
       components: {
         intro: ProjectIntro,
-        main: Project,
+        main: ProjectSummary,
         sidebar: ProjectSidebar
       }
     },

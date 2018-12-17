@@ -1,33 +1,42 @@
 <template>
   <div id='project' class='project'>
     <div class='container'>
-      <h1>{{getName}}</h1>
-      <div class='image-container' :class='getName'>
-        <img class='project-image' src='../assets/cosmos-map.png' />
+      <h1>{{curProjectName}}</h1>
+      <div class='image-container'>
+        <div class='project-image'></div>
+        <img class='project-image' :src='getSrc' />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
+import xinampa from '../assets/xinampa.png'
+import earthjustice from '../assets/earthjustice.png'
+import barbershop from '../assets/barbershop.png'
 export default {
   name: 'ProjectIntro',
+  data: () => {
+    return {
+      images: {xinampa, earthjustice, barbershop}
+    }
+  },
   computed: {
-    getName () {
-      return this.name || this.getPath()
+    // getName () {
+    //   return this.name || this.getPath()
+    // },
+    getSrc () {
+      return this.images[this.curProjectName]
     },
-    ...mapState({
-      name: state => state.project.name,
-      src: state => state.project.src
-    })
+    ...mapGetters(['curProject', 'curProjectName'])
   },
   methods: {
-    getPath () {
-      let path = window.location.pathname
-      let i = path.split('').reverse().indexOf('/')
-      return path.slice(-i)
-    }
+    // getPath () {
+    //   let path = window.location.pathname
+    //   let i = path.split('').reverse().indexOf('/')
+    //   return path.slice(-i)
+    // }
   }
 };
 </script>
@@ -54,13 +63,13 @@ h1 {
 .project-image:hover {
   cursor: pointer;
 }
-/*.earthjustice {
-  background-image: url('../assets/ej-watchlist.png');
+.earthjustice {
+  background-image: url('../assets/earthjustice.png');
 }
-.cosmos {
-  background-image: url('../assets/cosmos-map.png');
+.xinampa {
+  background-image: url('../assets/xinampa.png');
 }
 .barbershop-books {
-  background-image: url('../assets/bb-home.png');
-}*/
+  background-image: url('../assets/barbershop.png');
+}
 </style>
