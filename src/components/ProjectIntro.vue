@@ -1,7 +1,7 @@
 <template>
   <div id='project' class='project'>
     <div class='container'>
-      <h1>{{curProjectName}}</h1>
+      <h1>{{curProject.orgName}}</h1>
       <div class='image-container'>
         <div class='project-image'></div>
         <img class='project-image' :src='getSrc' />
@@ -27,7 +27,7 @@ export default {
     //   return this.name || this.getPath()
     // },
     getSrc () {
-      return this.images[this.curProjectName]
+      return this.images[this.curProject.imageName]
     },
     ...mapGetters(['curProject', 'curProjectName'])
   },

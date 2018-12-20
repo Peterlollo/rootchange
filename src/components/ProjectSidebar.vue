@@ -1,26 +1,31 @@
 <template>
   <div class='container'>
     <h4 class='small-title'>Org</h4>
-    <a target='_blank' class='big-text' href='http://xinampa.io/'>Xinampa</a>
+    <a target='_blank' class='big-text' :href='curProject.orgLink'>{{curProject.orgName}}</a>
     <h4 class='small-title'>Links</h4>
 		<ul>
-			<li><a class='big-text' target='_blank' href='http://mikrocosmos-user.threestone.io'>User-facing frontend</a></li>
-			<li><a class='big-text' target='_blank' href='http://mikrocosmos-provider.threestone.io'>Enterprise-facing frontend</a></li>
-			<li><a class='big-text' target='_blank' href='http://cosmosdev.xinampa.io/premium'>Premium Page and Payment</a></li>
+			<li v-for='(link, i) in webLinks' :key='i'>
+        <a class='big-text' target='_blank' :href='link.val'>{{link.text}}</a>
+      </li>
 		</ul>
 		<div>More images here</div>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-
   name: 'ProjectSidebar',
-
   data() {
     return {
 
     };
+  },
+  computed: {
+    ...mapGetters(['curProject']),
+    webLinks () {
+      return this.curProject.webLinks
+    }
   },
 };
 </script>

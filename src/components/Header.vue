@@ -1,8 +1,8 @@
 <template>
   <div id='Header'>
-		<div v-on:click='route("/")' class='left'>
+		<a v-on:click='route("/")' class='left'>
 			<p class='name'>Peter Lollo</p>
-		</div>
+		</a>
 		<div class='right'>Nav Bar</div>
   </div>
 </template>
@@ -21,7 +21,6 @@ export default {
 
 <style scoped>
 #Header {
-	/*background-color: #021D44;*/
 	background-color: none;
 	display: flex;
 	flex-direction: row;
