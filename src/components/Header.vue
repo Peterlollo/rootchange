@@ -3,7 +3,6 @@
 		<a v-on:click='route("/")' class='left'>
 			<p class='name'>Peter Lollo</p>
 		</a>
-		<div class='right'>Nav Bar</div>
   </div>
 </template>
 
@@ -21,7 +20,7 @@ export default {
 
 <style scoped>
 #Header {
-	background-color: none;
+	background-color: #021D44;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;

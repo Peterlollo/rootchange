@@ -2,10 +2,8 @@
   <div id="app">
     <Header />
     <div class='container'>
-      <router-view name='intro' id='router-intro'/>
       <div class='main-row'>
         <router-view name='main' id='router-main'/>
-        <router-view name='sidebar' id='router-sidebar'/>
       </div>
     </div>
     <Footer />
@@ -48,8 +46,7 @@ body {
   flex: 1 0 100%;
   color: #484848;
   min-height: 100vh;
-  /*min-height: 100%;*/
-  background-color: #021D44;;
+  background-color: #fff;
 }
 #app > .container {
   flex: 1 0 auto;
@@ -62,11 +59,10 @@ body {
 .main-row {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 #router-main {
-  overflow-y: scroll;
-}
-#router-sidebar {
   overflow-y: scroll;
 }
 @media (min-width: 768px) {
@@ -75,12 +71,6 @@ body {
   }
   .main-row {
     flex-direction: row;
-  }
-  #router-sidebar {
-    flex: 1;
-  }
-  #router-main {
-    flex: 2;
   }
 }
 </style>

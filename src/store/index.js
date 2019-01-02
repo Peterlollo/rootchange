@@ -1,15 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import project from './project'
-import * as projectActions from './project/actions'
-import * as projectGetters from './project/getters'
+import data from './data'
+import * as dataActions from './data/actions'
+import * as dataGetters from './data/getters'
 
 Vue.use(Vuex)
 
-const modules = {project}
-const actions = Object.assign(projectActions)
-const getters = Object.assign(projectGetters)
+const modules = {data}
+const actions = Object.assign(dataActions)
+const getters = Object.assign(dataGetters)
 const store = new Vuex.Store({
   actions,
   getters,

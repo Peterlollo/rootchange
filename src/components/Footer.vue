@@ -1,6 +1,5 @@
 <template>
   <div id='Footer'>
-  	<div>Social Icons</div>
   </div>
 </template>
 
@@ -12,6 +11,7 @@ export default {
 
 <style scoped>
 #Footer {
+  background-color: #021D44;
 	display: flex;
   justify-content: center;
   bottom: 0;
